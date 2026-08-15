@@ -3,11 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://consultation-with-sashi.vercel.app"),
-  title: "Free AI Marketing Consultation | Consultation with Sashi",
-  description: "Get a free personalized AI marketing plan designed to help your small business attract more customers and identify practical marketing opportunities.",
+  title: "Free AI Marketing Consultation | Sashi Shrestha",
+  description: "Book a free 1-to-1 AI marketing consultation with Sashi Shrestha and discover practical strategies to attract more customers, generate leads, and improve your digital marketing.",
+  alternates: { canonical: "/" },
   icons: { icon: "/logo-cropped.png" },
-  openGraph: { title: "Free AI Marketing Consultation | Consultation with Sashi", description: "Get a free personalized AI marketing plan for your small business.", images: ["/logo-cropped.png"], type: "website" },
-  twitter: { card: "summary", title: "Free AI Marketing Consultation | Consultation with Sashi", description: "Get a free personalized AI marketing plan for your small business." },
+  openGraph: { title: "Free AI Marketing Consultation | Sashi Shrestha", description: "Book a free 1-to-1 AI marketing consultation and get practical marketing strategies for your business.", images: ["/logo-cropped.png"], type: "website" },
+  twitter: { card: "summary", title: "Free AI Marketing Consultation | Sashi Shrestha", description: "Book a free 1-to-1 AI marketing consultation with Sashi Shrestha." },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
