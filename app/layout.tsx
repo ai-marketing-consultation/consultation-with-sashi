@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://consultation-with-sashi.vercel.app"),
   title: "Free AI Marketing Consultation | Consultation with Sashi",
   description: "Get a free personalized AI marketing plan designed to help your small business attract more customers and identify practical marketing opportunities.",
   icons: { icon: "/logo-cropped.png" },

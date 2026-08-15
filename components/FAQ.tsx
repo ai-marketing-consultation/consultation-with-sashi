@@ -4,9 +4,12 @@ import { useState } from "react";
 const items = [
   ["Is the consultation really free?", "Yes. The initial AI marketing consultation is completely free."],
   ["Who is this consultation for?", "It is designed for small and growing businesses that want clearer direction on digital marketing, customer acquisition, and practical ways to use AI."],
-  ["What will I receive after the consultation?", "You'll receive a personalized AI marketing plan with practical areas to focus on next based on your business and current marketing situation."],
-  ["Do I need to be running ads already?", "No. Whether you're already running ads, posting organically, or just getting started, we can identify the most useful next steps for your business."],
-  ["Will you try to sell me something?", "The consultation is designed to give you useful direction first. If our services are a good fit for your business, we'll explain how we can help. There is no obligation to work with us."],
+  ["What will we discuss?", "We'll discuss your business, current marketing, challenges, goals, and practical opportunities to improve your next steps."],
+  ["Do I need to be using AI already?", "No. The consultation is designed to help you understand practical ways AI could support your business, wherever you are today."],
+  ["Is this suitable for small businesses?", "Yes. This consultation is designed for small and growing businesses that want practical marketing direction."],
+  ["Will I be required to buy a service?", "No. The consultation gives you useful direction first. If my services are a good fit, I’ll explain how I can help, with no obligation to work together."],
+  ["How will the consultation be conducted?", "After reviewing your request, Sashi will contact you to arrange the consultation."],
+  ["What happens after I submit the form?", "Sashi will review your information and contact you to arrange your free consultation."],
 ];
 
 export function FAQ() {

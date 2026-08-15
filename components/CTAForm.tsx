@@ -17,6 +17,6 @@ export function CTAForm() {
     <div className="form-grid">{field("name", "Full name", "Your full name")}{field("whatsapp", "WhatsApp number", "Your active WhatsApp number")}{field("business", "Business name", "Your business name")}{field("email", "Email Address", "you@business.com", "email", true)}</div>
     {field("url", "Website or Facebook URL", "https://", "url", true)}
     <label className="field" htmlFor="message"><span>Tell us about your business <em>Optional</em></span><textarea id="message" name="message" placeholder="Tell us about your current marketing, challenges, or goals..." rows={4} /></label>
-    <button className="button submit" type="submit" disabled={loading}>{loading ? "Sending your request..." : "Get My Free AI Marketing Plan"}<span>→</span></button><p className="form-trust">Free consultation • Personalized for your business • No obligation</p><p className="privacy">We respect your privacy. No spam.</p>
+    <button className="button submit" type="submit" disabled={loading}>{loading ? "Sending your request..." : "Get My Free AI Marketing Plan"}<span>→</span></button><p className="form-trust">Free consultation • Personalized for your business • No obligation</p><p className="privacy">Your information will only be used to contact you regarding your consultation. No spam.</p><div className="what-next"><strong>What happens next?</strong><p>After submitting the form, Sashi will review your business information and contact you to arrange your free consultation.</p></div>
   </form>;
 }
