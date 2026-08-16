@@ -1,0 +1,45 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+const FORM_ID = "6a819b57ed3fa497a76881ba";
+
+export function FlodeskForm() {
+  const host = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function mount() {
+      const response = await fetch("/flodesk-embed.html");
+      let embed = await response.text();
+      if (cancelled || !host.current) return;
+      embed = embed.replace(/data-ff-config="([^"]+)"/, (_, encoded: string) => {
+        const config = JSON.parse(atob(encoded));
+        config.onSuccess = { ...config.onSuccess, mode: "message", redirectUrl: "" };
+        return `data-ff-config="${btoa(JSON.stringify(config))}"`;
+      });
+      const scripts = [...embed.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)];
+      host.current.innerHTML = embed.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
+      scripts.forEach((match) => {
+        const script = document.createElement("script");
+        if (/type="module"/.test(match[1])) script.type = "module";
+        if (/nomodule/.test(match[1])) script.noModule = true;
+        script.text = match[2];
+        document.body.appendChild(script);
+      });
+      const root = host.current.querySelector<HTMLElement>(`[data-ff-el="root"].ff-${FORM_ID}`);
+      if (!root) return;
+      const observer = new MutationObserver(() => {
+        if (root.dataset.ffStage === "success") {
+          observer.disconnect();
+          window.setTimeout(() => window.location.assign("/thanks"), 1200);
+        }
+      });
+      observer.observe(root, { attributes: true, attributeFilter: ["data-ff-stage"] });
+    }
+    mount();
+    return () => { cancelled = true; };
+  }, []);
+
+  return <div ref={host} className="flodesk-host" aria-label="Free AI marketing consultation form" data-form-id={FORM_ID} />;
+}

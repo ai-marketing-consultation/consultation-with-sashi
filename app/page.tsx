@@ -1,5 +1,5 @@
 import { Header } from "../components/Header";
-import { CTAForm } from "../components/CTAForm";
+import { FlodeskForm } from "../components/FlodeskForm";
 import { FAQ } from "../components/FAQ";
 import { MobileCTA } from "../components/MobileCTA";
 import Image from "next/image";
@@ -13,6 +13,6 @@ export default function Home() { return <main><Header />
   <section className="benefits section"><div className="container"><p className="eyebrow">WHAT YOU&apos;LL GET</p><h2>What You&apos;ll Get From the Free Consultation</h2><div className="benefit-grid">{benefits.map(([n,t,d])=><article className="benefit" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
   <section className="process section"><div className="container"><p className="eyebrow">A SIMPLE PROCESS</p><h2>Clear direction starts here.</h2><div className="steps">{steps.map(([t,d],i)=><article key={t}><b>0{i+1}</b><div><h3>{t}</h3><p>{d}</p></div></article>)}</div></div></section>
   <section className="sashi section"><div className="container sashi-wrap"><div className="sashi-photo"><Image src="/sashi-photo.png" alt="Sashi, AI Digital Marketing Expert" width={1122} height={1400} priority /></div><div><p className="eyebrow">AI MARKETING CONSULTANT</p><h2>Meet Sashi</h2><p>I&apos;m Sashi Shrestha, an AI marketing consultant focused on helping businesses use AI and digital marketing more strategically. My approach is practical and focused on identifying better marketing opportunities, improving lead generation, and creating a clearer path for growth.</p><p>The consultation focuses on your actual business situation rather than generic marketing advice.</p><ArrowButton>Get My Free AI Marketing Plan</ArrowButton></div></div></section>
-  <section id="consultation" className="consultation section"><div className="container"><div className="consultation-intro"><p className="eyebrow">YOUR NEXT STEP</p><h2>Get the clarity your marketing needs.</h2><p>A personalized conversation about your business, your goals, and the practical opportunities in front of you.</p></div><CTAForm /></div></section>
+  <section id="consultation" className="consultation section"><div className="container"><div className="consultation-intro"><p className="eyebrow">YOUR NEXT STEP</p><h2>Get the clarity your marketing needs.</h2><p>A personalized conversation about your business, your goals, and the practical opportunities in front of you.</p></div><div className="flodesk-card"><FlodeskForm /><p className="privacy">Your information will only be used regarding your consultation request.</p></div></div></section>
   <FAQ />
   <footer><strong>Consultation with Sashi</strong><span>AI Digital Marketing for Small Businesses</span><small>© {new Date().getFullYear()} Consultation with Sashi</small></footer><MobileCTA /></main>; }
