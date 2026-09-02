@@ -20,6 +20,17 @@ export function FlodeskForm() {
       });
       const scripts = [...embed.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)];
       host.current.innerHTML = embed.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
+      const root = host.current.querySelector<HTMLElement>(`[data-ff-el="root"].ff-${FORM_ID}`);
+      if (!root) return;
+      const fieldLabels = ["Email Address", "Full Name", "WhatsApp Number", "Business Name", "Website / Facebook Link"];
+      root.querySelectorAll<HTMLElement>(`.ff-${FORM_ID}__field`).forEach((field, index) => {
+        const label = fieldLabels[index];
+        if (!label) return;
+        const input = field.querySelector<HTMLInputElement>("input");
+        const fieldLabel = field.querySelector<HTMLElement>(`.ff-${FORM_ID}__label`);
+        if (input) input.placeholder = label;
+        if (fieldLabel) fieldLabel.textContent = label;
+      });
       scripts.forEach((match) => {
         const script = document.createElement("script");
         if (/type="module"/.test(match[1])) script.type = "module";
@@ -27,8 +38,6 @@ export function FlodeskForm() {
         script.text = match[2];
         document.body.appendChild(script);
       });
-      const root = host.current.querySelector<HTMLElement>(`[data-ff-el="root"].ff-${FORM_ID}`);
-      if (!root) return;
       const observer = new MutationObserver(() => {
         if (root.dataset.ffStage === "success") {
           observer.disconnect();
