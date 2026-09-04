@@ -22,7 +22,10 @@ export function FlodeskForm() {
       host.current.innerHTML = embed.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
       const root = host.current.querySelector<HTMLElement>(`[data-ff-el="root"].ff-${FORM_ID}`);
       if (!root) return;
-      const fieldLabels = ["Email Address", "Full Name", "WhatsApp Number", "Business Name", "Website / Facebook Link"];
+      // The embed's native field names are correct, but its exported display labels
+      // are shifted. Keep Flodesk's submission payload untouched while showing
+      // visitors the information each field actually collects.
+      const fieldLabels = ["Email Address", "Full Name", "WhatsApp Number", "Website / Facebook Link"];
       root.querySelectorAll<HTMLElement>(`.ff-${FORM_ID}__field`).forEach((field, index) => {
         const label = fieldLabels[index];
         if (!label) return;
